@@ -188,3 +188,43 @@ To learn more about Plasmic, take a look at the following resources:
 - [Plasmic Slack Community](https://www.plasmic.app/slack)
 
 You can check out [the Plasmic GitHub repository](https://github.com/plasmicapp/plasmic) - your feedback and contributions are welcome!
+
+---
+
+### Paul's note on plasmic:
+
+#### Using Plasmic Components
+
+For each component, Plasmic generates two React components
+in two files.  For example, for component Homepage, there
+are:
+
+* A blackbox component at plasmic/medusa_js_plasmic_demo_store/PlasmicHomepage.tsx
+This is a blackbox, purely-presentational library component
+that you can use to render your designs.  This file is owned
+by Plasmic, and you should not edit it -- it will be
+overwritten when the component design is updated. This
+component should only be used by the "wrapper" component
+(below).
+
+* A wrapper component at ../pages/index.tsx
+This component is owned and edited by you to instantiate the
+PlasmicHomepage component with desired variants, states,
+event handlers, and data.  You have complete control over
+this file, and this is the actual component that should be
+used by the rest of the codebase.
+
+Learn more at https://www.plasmic.app/learn/codegen-guide/
+
+#### Using Icons
+
+For each SVG icon, Plasmic also generates a React component.
+The component takes in all the usual props that you can pass
+to an svg element, and defaults to width/height of 1em.
+
+For example, for the MenuIcon icon at plasmic/medusa_js_plasmic_demo_store/icons/PlasmicIcon__Menu.tsx,
+instantiate it like:
+
+    <MenuIcon color="red" />
+
+Learn more at https://www.plasmic.app/learn/other-assets/#icons
